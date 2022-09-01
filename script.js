@@ -19,8 +19,11 @@ class Explosion {
         this.frame = 0
         this.timer = 0
         this.angle = Math.random() * 6.2
+        this.sound = new Audio()
+        this.sound.src = './assets/boom.wav'
     }
     update(){
+        if (this.frame === 0) this.sound.play()
         this.timer++
         if(this.timer % 10 === 0){
             this.frame++
@@ -39,9 +42,9 @@ class Explosion {
 window.addEventListener('click', function(e){
     createAnimation(e)
 })
-window.addEventListener('mousemove', function(e){
-    createAnimation(e)
-})
+// window.addEventListener('mousemove', function(e){
+//     createAnimation(e)
+// })
 
 function createAnimation(e){
     let positionX = e.x - canvasPosition.left
