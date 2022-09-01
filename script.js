@@ -3,6 +3,8 @@ const ctx = canvas.getContext('2d')
 canvas.width = 500
 canvas.height = 700
 const explosions = []
+let canvasPosition = canvas.getBoundingClientRect()
+
 
 class Explosion {
     constructor(x, y){
@@ -27,5 +29,5 @@ class Explosion {
 window.addEventListener('click', function(e){
     console.log(e)
     ctx.fillStyle = 'white'
-    ctx.fillRect(e.x, e.y, 50, 50)
+    ctx.fillRect(e.x - canvasPosition.left - 25, e.y - canvasPosition.top - 25, 50, 50)
 })
