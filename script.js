@@ -20,6 +20,12 @@ class Explosion {
         this.frame++
     }
     draw(){
-        ctx.drawImage(this.image, this.spriteWidth * this.frame, 0, this.spriteWidth, this.spriteHeight, dx, dy, dw, dh)
+        ctx.drawImage(this.image, this.spriteWidth * this.frame, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height)
     }
 }
+
+window.addEventListener('click', function(e){
+    console.log(e)
+    ctx.fillStyle = 'white'
+    ctx.fillRect(e.x, e.y, 50, 50)
+})
